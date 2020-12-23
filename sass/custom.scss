@@ -1,0 +1,106 @@
+$primary-color: #E0CE4E;
+
+@mixin myserif{
+    font-family: ambroise-std, serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@mixin mysanserif {
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    
+}
+
+@mixin transition {
+    transition: .3s ease-in-out;
+}
+
+// start global navigation -------v
+    .mynavbar {
+        position: fixed;
+        width: 100%;
+        background-color: #fff;
+        font-size: 1.5rem;
+        @include transition();
+        padding: 0px 6rem;
+        @include mysanserif();
+
+        & a {
+            color: #000;
+        }
+    }
+
+    .navTitle {
+        @include myserif;
+        font-size: 2.5rem;
+    }
+
+
+    //drop down styling
+    ul.navbar-nav li.dropdown:hover .myddmenu { //display drop down on hover
+        display: block;
+        z-index: 100;
+        @include transition();
+    }
+
+    .myddmenu {
+        border: none;
+        background-color: #fff;
+        z-index: 100;
+
+        & a{
+            @include transition();
+        }
+    }
+
+    .myddmenu a:hover {
+        background-color: #fff !important;
+        z-index: 100;
+        @include transition();
+    }
+
+.myjumbotron {
+    // background-image: ;
+}
+
+// highlight links on hover -------->
+
+    .highlight {
+        position: relative;
+        display: inline-block;
+        @include transition();
+        z-index: 2;
+    }
+
+    .highlight:hover {
+        color: #000;
+        @include transition();
+        transition-delay: .2s;
+        text-decoration: none;
+    }
+
+    .highlight:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        background: $primary-color;
+        left: 0px;
+        bottom: 0px;
+        height: 0;
+        z-index: -1;
+        margin: 0px 0px .5rem;
+        @include transition();
+    }
+
+    .highlight:hover:after {
+        width: 100%;
+        height: 1.1rem;
+        right: 4px;
+        @include transition();  
+    }
+
+    .highlight:active:after {
+        background-color: #bfbfbf;
+    }
