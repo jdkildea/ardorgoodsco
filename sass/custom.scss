@@ -1,14 +1,40 @@
+@font-face {
+    font-family: 'made_canvas_black';
+    src: url('../fonts/made_canvas_black-webfont.woff2') format('woff2'),
+         url('../fonts/made_canvas_black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'made_canvas_light';
+    src: url('../fonts/made_canvas_light-webfont.woff2') format('woff2'),
+         url('../fonts/made_canvas_light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'made_canvas_regular';
+    src: url('../fonts/made_canvas_regular-webfont.woff2') format('woff2'),
+         url('../fonts/made_canvas_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 $primary-color: #E0CE4E;
 
 @mixin myserif{
-    font-family: ambroise-std, serif;
+    font-family: 'made_canvas_light', sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 @mixin mysanserif {
     font-family: aktiv-grotesk, sans-serif;
-    font-weight: 200;
+    font-weight: 200 !important;
     font-style: normal;
     
 }
@@ -24,7 +50,7 @@ $primary-color: #E0CE4E;
         background-color: #fff;
         font-size: 1.5rem;
         @include transition();
-        padding: 0px 6rem;
+        padding: 0px 1rem;
         @include mysanserif();
 
         & a {
@@ -32,28 +58,62 @@ $primary-color: #E0CE4E;
         }
     }
 
+    .icon {
+        width: auto;
+        height: 36px;
+        padding: 8px 0px;
+
+        & img {
+            width: auto;
+            height: 100%;
+            position: relative;
+            top: -8px;
+        }
+    }
+
     .navTitle {
         @include myserif;
         font-size: 2.5rem;
+        margin: auto;
+        // padding-right: -230px;
     }
 
+    #navbarToggler {
+        max-width: 250px;
+    }
 
     //drop down styling
     ul.navbar-nav li.dropdown:hover .myddmenu { //display drop down on hover
         display: block;
-        z-index: 100;
+        z-index: -2;
         @include transition();
+        width: auto;
     }
 
     .myddmenu {
         border: none;
         background-color: #fff;
         z-index: 100;
+        padding: 5px 0px 0px;
+        position: relative;
+        top: 40px;
+        max-width: 50px;
+        z-index: -2;
+        
 
         & a{
             @include transition();
+            font-weight: 200;
+
+            color: #9A9A9A;
+
+            &:hover {
+                color: #000;
+            }
         }
     }
+
+
 
     .myddmenu a:hover {
         background-color: #fff !important;
@@ -95,7 +155,7 @@ $primary-color: #E0CE4E;
     }
 
     .highlight:hover:after {
-        width: 100%;
+        width: inherit;
         height: 1.1rem;
         right: 4px;
         @include transition();  
@@ -103,4 +163,18 @@ $primary-color: #E0CE4E;
 
     .highlight:active:after {
         background-color: #bfbfbf;
+    }
+
+    //nav drop down highlight styling
+    .myddmenu .highlight {
+        &:after{
+            width: 60%;
+            left: 20px;
+            
+        }
+
+        &:hover:after {
+            width: 60%;
+            height: .5rem;
+        }
     }
