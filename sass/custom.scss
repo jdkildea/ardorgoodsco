@@ -43,7 +43,7 @@ $primary-color: #E0CE4E;
     transition: .3s ease-in-out;
 }
 
-// start global navigation -------v
+// start global navigation
     .mynavbar {
         position: fixed;
         width: 100%;
@@ -58,18 +58,37 @@ $primary-color: #E0CE4E;
         }
     }
 
-    .icon {
-        width: auto;
-        height: 36px;
-        padding: 8px 0px;
+    //Instagram Icon
+        // <a> wrapper
+            .icon {
+                width: auto;
+                height: 36px;
+                padding: 8px 30px 8px 0px;//padding-right centers .navTitle on mobile
 
-        & img {
-            width: auto;
-            height: 100%;
-            position: relative;
-            top: -8px;
-        }
-    }
+                @media (min-width: 768px) {
+                    padding: 8px 230px 8px 0px; //centers .navTitle on desktops
+                 }
+
+                & svg {
+                    width: auto;
+                    height: 100%;
+                    position: relative;
+                    top: -8px;
+                }
+
+            
+            }
+
+        //svg styling   
+            .ig_icon {
+                fill: #9A9A9A;
+                @include transition();
+            }
+
+            svg:hover .ig_icon{
+                fill: #000;
+                @include transition();
+            }
 
     .navTitle {
         @include myserif;
@@ -78,8 +97,36 @@ $primary-color: #E0CE4E;
         // padding-right: -230px;
     }
 
-    #navbarToggler {
+    .customToggler {
+        border-color: transparent !important;
+    }
+
+    .customToggler-icon-base {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(154,154,154, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+        -webkit-transition: background-image 0.3s ease-in-out;
+        transition: background-image 0.3s ease-in-out;
+
+        &:hover {
+
+        }
+    }
+
+    .customToggler-icon-top { 
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+        -webkit-transition: background-image 0.3s ease-in-out;
+        transition: background-image 0.3s ease-in-out;
+    }
+
+    #navbarMenu {
         max-width: 250px;
+
+        &.show {
+            max-width: 100vw;
+        }
+
+        &.collapsing {
+            max-width: 100vw;
+        }
     }
 
     //drop down styling
